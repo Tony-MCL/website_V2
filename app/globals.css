@@ -771,26 +771,38 @@ a {
   justify-content: center;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.32;
-  mix-blend-mode: screen;
 }
 
-.watermark-layer img {
-  max-width: 68vw;
+/* SELVE LOGOEN */
+.watermark-image {
+  width: 68vw;           /* her styrer du størrelsen */
+  max-width: 1100px;     /* øvre grense på store skjermer */
   height: auto;
-  filter: drop-shadow(0 32px 70px rgba(0, 0, 0, 0.95));
-  transform: translateY(18px);
+
+  opacity: 0.16;         /* hvor tydelig den er */
+  mix-blend-mode: overlay;
+
+  /* "presset inn i bakgrunnen"-effekt */
+  filter:
+    drop-shadow(0 2px 2px rgba(255, 255, 255, 0.10))   /* lys kant */
+    drop-shadow(0 -3px 8px rgba(0, 0, 0, 0.70));       /* mørk kant */
+
+  transform: translateY(22px) scale(1.35);  /* flytt litt ned og gjør selve logoen større */
 }
 
 @media (max-width: 1024px) {
-  .watermark-layer {
-    opacity: 0.22;
+  .watermark-image {
+    width: 60vw;
+    opacity: 0.12;
+    transform: translateY(18px) scale(1.25);
   }
 }
 
 @media (max-width: 768px) {
-  .watermark-layer {
-    opacity: 0.1;
+  .watermark-image {
+    width: 70vw;
+    opacity: 0.08;
+    transform: translateY(16px) scale(1.1);
   }
 }
 
