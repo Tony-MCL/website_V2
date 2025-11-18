@@ -770,9 +770,9 @@ a {
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 0;             /* under innholdet */
-  opacity: 0.32;          /* tydelig, men ikke skrikende */
-  mix-blend-mode: screen; /* får gradienten til å “gløde” i mørk bakgrunn */
+  z-index: 0;
+  opacity: 0.32;
+  mix-blend-mode: screen;
 }
 
 .watermark-layer img {
@@ -799,5 +799,3 @@ a {
     display: none;
   }
 }
-
-
