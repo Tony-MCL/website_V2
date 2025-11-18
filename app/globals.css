@@ -792,7 +792,7 @@ a {
 
 @media (max-width: 1024px) {
   .watermark-image {
-    width: 60vw;
+    width: 80vw;
     opacity: 0.12;
     transform: translateY(18px) scale(1.25);
   }
