@@ -769,27 +769,27 @@ a {
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 0;
-  opacity: 0.22;           /* mer synlig */
-  mix-blend-mode: normal;  /* ikke bland inn for mye med bakgrunnen */
+  z-index: 0;             /* under innholdet */
+  opacity: 0.32;          /* tydelig, men ikke skrikende */
+  mix-blend-mode: screen; /* får gradienten til å “gløde” i mørk bakgrunn */
 }
 
 .watermark-layer img {
-  max-width: 55vw;
+  max-width: 52vw;
   height: auto;
-  filter: drop-shadow(0 28px 60px rgba(0, 0, 0, 0.9));
-  transform: translateY(16px);
+  filter: drop-shadow(0 32px 70px rgba(0, 0, 0, 0.95));
+  transform: translateY(18px);
 }
 
 @media (max-width: 1024px) {
   .watermark-layer {
-    opacity: 0.15;
+    opacity: 0.22;
   }
 }
 
 @media (max-width: 768px) {
   .watermark-layer {
-    opacity: 0.08;
+    opacity: 0.1;
   }
 }
 
@@ -798,4 +798,5 @@ a {
     display: none;
   }
 }
+
 
