@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navItems = [
@@ -12,6 +11,8 @@ const navItems = [
   { href: "/kontakt", label: "Kontakt" }
 ];
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export function Header() {
   const pathname = usePathname();
 
@@ -19,12 +20,9 @@ export function Header() {
     <header className="site-header">
       <div className="site-header-inner">
         <Link href="/" className="brand" aria-label="Morning Coffee Labs forside">
-          <Image
-            src="/images/mcl-logo.png"
+          <img
+            src={`${basePath}/images/mcl-logo.png`}
             alt="Morning Coffee Labs – Challenges → Ideas → Solutions"
-            width={260}
-            height={80}
-            priority
             className="brand-logo"
           />
         </Link>
