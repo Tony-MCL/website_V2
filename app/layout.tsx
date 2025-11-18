@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { BackgroundWatermark } from "../components/BackgroundWatermark";
 
 export const metadata: Metadata = {
   title: "Morning Coffee Labs",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="no">
       <body className="site-root">
+        <BackgroundWatermark />
         <Header />
         <main className="site-main">{children}</main>
         <Footer />
