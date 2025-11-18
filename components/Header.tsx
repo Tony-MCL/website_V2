@@ -21,12 +21,13 @@ export function Header() {
         <Link href="/" className="brand" aria-label="Morning Coffee Labs forside">
           <Image
             src="/images/mcl-logo.png"
-            alt="Morning Coffee Labs logo"
-            width={34}
-            height={34}
+            alt="Morning Coffee Labs"
+            width={140}
+            height={40}
+            priority
             style={{
-              borderRadius: "50%",
-              objectFit: "cover"
+              height: "32px",
+              width: "auto"
             }}
           />
 
