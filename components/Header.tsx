@@ -22,8 +22,8 @@ export function Header() {
           <Image
             src="/images/mcl-logo.png"
             alt="Morning Coffee Labs – Challenges → Ideas → Solutions"
-            width={220}
-            height={60}
+            width={260}
+            height={80}
             priority
             className="brand-logo"
           />
