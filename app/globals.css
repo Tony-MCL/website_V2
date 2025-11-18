@@ -43,6 +43,8 @@ a {
 .site-main {
   flex: 1;
   padding: 4rem 1.5rem 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -91,21 +93,6 @@ a {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-}
-
-.brand-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 20%, #f4ede4 0, #c49a6c 30%, #2a2522 70%, #0d0907 100%);
-  border: 1px solid rgba(244, 237, 228, 0.2);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  color: #0d0907;
-  font-weight: 700;
 }
 
 .brand-text {
@@ -551,6 +538,8 @@ a {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   padding: 1.4rem 1.5rem 1.5rem;
   background: radial-gradient(circle at top, #2b231e 0, #17120f 55%, #100d0b 100%);
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -782,4 +771,36 @@ a {
 
 .simple-list li {
   margin-bottom: 0.5rem;
+}
+
+/* ===== Watermark ===== */
+
+.watermark-layer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.07;
+  mix-blend-mode: soft-light;
+}
+
+.watermark-layer img {
+  max-width: 70vw;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+}
+
+@media (max-width: 768px) {
+  .watermark-layer {
+    opacity: 0.04;
+  }
+}
+
+@media (max-width: 520px) {
+  .watermark-layer {
+    display: none;
+  }
 }
