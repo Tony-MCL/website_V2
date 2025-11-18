@@ -1,13 +1,11 @@
-import Image from "next/image";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export function BackgroundWatermark() {
   return (
     <div className="watermark-layer" aria-hidden="true">
-      <Image
-        src="/images/mcl-watermark.png"
+      <img
+        src={`${basePath}/images/mcl-watermark.png`}
         alt=""
-        width={900}
-        height={900}
       />
     </div>
   );
