@@ -95,22 +95,9 @@ a {
   gap: 0.6rem;
 }
 
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-family: var(--mcl-font-display);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-
-.brand-subtitle {
-  font-size: 0.75rem;
-  color: var(--mcl-text-muted);
+.brand-logo {
+  height: 40px;   /* kontrollert høyde */
+  width: auto;
 }
 
 /* Nav */
@@ -783,26 +770,26 @@ a {
   justify-content: center;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.16;              /* økt for å bli synlig */
-  mix-blend-mode: soft-light; /* gir “opp fra bakgrunnen”-følelse */
+  opacity: 0.22;           /* mer synlig */
+  mix-blend-mode: normal;  /* ikke bland inn for mye med bakgrunnen */
 }
 
 .watermark-layer img {
-  max-width: 60vw;
+  max-width: 55vw;
   height: auto;
-  filter: drop-shadow(0 26px 52px rgba(0, 0, 0, 0.9));
-  transform: translateY(10px);
+  filter: drop-shadow(0 28px 60px rgba(0, 0, 0, 0.9));
+  transform: translateY(16px);
 }
 
 @media (max-width: 1024px) {
   .watermark-layer {
-    opacity: 0.1;
+    opacity: 0.15;
   }
 }
 
 @media (max-width: 768px) {
   .watermark-layer {
-    opacity: 0.06;
+    opacity: 0.08;
   }
 }
 
