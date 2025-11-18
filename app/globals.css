@@ -776,7 +776,7 @@ a {
 }
 
 .watermark-layer img {
-  max-width: 52vw;
+  max-width: 58vw;
   height: auto;
   filter: drop-shadow(0 32px 70px rgba(0, 0, 0, 0.95));
   transform: translateY(18px);
