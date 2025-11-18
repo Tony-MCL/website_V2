@@ -761,48 +761,48 @@ a {
   margin-bottom: 0.5rem;
 }
 
-/* ===== Watermark ===== */
+/* ===== Watermark (MCL mask) ===== */
 
 .watermark-layer {
   position: fixed;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   pointer-events: none;
   z-index: 0;
-}
 
-/* Selve logoen */
-.watermark-image {
-  width: 80vw;          /* styrer størrelsen – endre dette tallet */
-  height: auto;
-  /* ingen max-width som stopper oss */
+  /* Selve "fargen" i logoen: MCL-espresso/latte-gradient */
+  background:
+    radial-gradient(circle at center,
+      rgba(196, 154, 108, 0.55),
+      rgba(31, 26, 23, 0.0) 65%);
 
-  opacity: 0.18;        /* hvor tydelig den er */
+  /* Bruk SVG som maske (settes i inline-style, her justerer vi oppførsel) */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  /* Størrelse og emboss-følelse */
+  opacity: 0.18;
   mix-blend-mode: overlay;
-
-  /* "presset inn i bakgrunnen"-effekt */
   filter:
-    drop-shadow(0 2px 2px rgba(255, 255, 255, 0.10))   /* lys kant */
-    drop-shadow(0 -3px 8px rgba(0, 0, 0, 0.70));       /* mørk kant */
-
-  transform: translateY(20px) scale(1.35);
+    drop-shadow(0 2px 2px rgba(255, 255, 255, 0.12))   /* lys kant */
+    drop-shadow(0 -3px 10px rgba(0, 0, 0, 0.8));       /* mørk kant */
+  transform: translateY(24px) scale(1.25);
 }
 
 @media (max-width: 1024px) {
-  .watermark-image {
-    width: 65vw;
+  .watermark-layer {
     opacity: 0.14;
-    transform: translateY(16px) scale(1.2);
+    transform: translateY(18px) scale(1.15);
   }
 }
 
 @media (max-width: 768px) {
-  .watermark-image {
-    width: 70vw;
+  .watermark-layer {
     opacity: 0.08;
-    transform: translateY(12px) scale(1.05);
+    transform: translateY(14px) scale(1.0);
   }
 }
 
