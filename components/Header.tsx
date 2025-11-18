@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navItems = [
@@ -18,9 +19,17 @@ export function Header() {
     <header className="site-header">
       <div className="site-header-inner">
         <Link href="/" className="brand" aria-label="Morning Coffee Labs forside">
-          <div className="brand-mark">
-            <span>M</span>
-          </div>
+          <Image
+            src="/images/mcl-logo.png"
+            alt="Morning Coffee Labs logo"
+            width={34}
+            height={34}
+            style={{
+              borderRadius: "50%",
+              objectFit: "cover"
+            }}
+          />
+
           <div className="brand-text">
             <span className="brand-title">Morning Coffee Labs</span>
             <span className="brand-subtitle">Digital struktur &amp; kaffe</span>
