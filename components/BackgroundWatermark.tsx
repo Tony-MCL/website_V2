@@ -6,8 +6,8 @@ export function BackgroundWatermark() {
       <Image
         src="/images/mcl-watermark.png"
         alt=""
-        width={640}
-        height={640}
+        width={900}
+        height={900}
       />
     </div>
   );
