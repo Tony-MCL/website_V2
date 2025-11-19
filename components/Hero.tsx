@@ -8,7 +8,7 @@ export function Hero() {
           <p className="section-eyebrow">MORNING COFFEE LABS</p>
           <h1 className="hero-heading">Digitale verktøy for fagfolk</h1>
           <p className="hero-subheading">
-            Vi bygger fokuserte, ryddige verktøy for tekniske fag – med like
+            Her bygges fokuserte, ryddige verktøy for tekniske fag – med like
             mye kjærlighet til struktur som til kaffe.
           </p>
 
