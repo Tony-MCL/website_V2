@@ -1,67 +1,96 @@
 import { Section } from "../../components/Section";
+import { Button } from "../../components/Button";
 
 export default function OmPage() {
   return (
     <>
       <Section
         eyebrow="OM MCL"
-        title="Morning Coffee Labs · filosofi og retning"
-        description="MCL er et lite laboratorium for digitale verktøy – med fokus på elektro, kraft og tekniske fag. Nettsiden du ser nå er versjon 1.0 av hovednavet."
+        title="Fra morgenkaffe og hobbyprosjekt til digitalt verksted"
       >
         <div className="about-grid">
           <div>
-            <h1 className="page-heading">Hvorfor Morning Coffee Labs?</h1>
             <p className="page-intro">
-              Mange fagverktøy er enten for tunge, for generelle eller for lite
-              tilpasset hvordan arbeid faktisk utføres. Morning Coffee Labs
-              ble til som en respons på dette – med et ønske om verktøy som
-              både føles profesjonelle og menneskelige.
+              Morning Coffee Labs startet helt enkelt: over morgenkaffen, med et
+              ønske om å gjøre eget arbeid enklere, mer oversiktlig og mindre
+              preget av tunge verktøy. Etter hvert som idéene vokste, ble
+              hobbyprosjektet til et mer strukturert laboratorium for digitale
+              verktøy – nå på vei mot et fullt ut kommersielt enkeltmannsforetak.
             </p>
+            <p className="page-intro">
+              Jeg har bakgrunn fra tekniske miljøer og prosjekter, særlig innen
+              elektro og kraft, men verktøyene jeg bygger er ikke låst til én
+              bransje. Grunnideen er at gode arbeidsflater, ryddig struktur og
+              forutsigbar funksjon er universelt nyttig – uansett om du jobber
+              på anlegg, kontor eller noe midt imellom.
+            </p>
+            <p className="page-intro">
+              Jeg er grunnleggende optimist: jeg ser utfordringer før jeg ser
+              problemer, og jeg har mer tro på tydelige strukturer enn på
+              kompliserte systemer. Det er denne tankegangen som har gitt
+              payoff i mottoet:
+              <br />
+              <strong>Challenges → Ideas → Solutions.</strong>
+            </p>
+          </div>
 
+          <div>
             <ul className="about-list">
               <li>
-                <strong>Kaffe + struktur:</strong> Navnet handler om den rolige
-                morgenstunden – der man får oversikt, legger en plan og så
-                gjennomfører. MCL-verktøyene skal gi den samme følelsen.
+                <strong>Challenges:</strong> Virkelige utfordringer i prosjekter og
+                drift er utgangspunktet – ikke hypotetiske use-cases.
               </li>
               <li>
-                <strong>Fag før pynt:</strong> Vi bygger først og fremst for
-                elektro, kraft og tekniske fag. Designet er rolig, moderne og
-                uten unødvendig støy.
+                <strong>Ideas:</strong> Ideer testes raskt i små, kontrollerte
+                prototyper før noe blir til et produkt.
               </li>
               <li>
-                <strong>Små, målrettede apper:</strong> Hver app har et tydelig
-                formål. Formelsamlingen handler om beregninger. ManageProgress
-                handler om fremdrift. Ingen alt-i-ett-løsninger.
+                <strong>Solutions:</strong> Verktøyene skal være konkrete, tydelige
+                og mulig å ta i bruk uten lange kurs eller tunge manualer.
               </li>
             </ul>
+            <p className="text-muted" style={{ marginTop: "0.8rem" }}>
+              Jeg har aldri egentlig “møtt en fremmed” – bare potensielt nye
+              samarbeidspartnere og faglige sparringspartnere. Derfor er MCL også
+              et sted for dialog: innspill, ønsker og idéer tas imot med åpne
+              armer.
+            </p>
           </div>
+        </div>
+      </Section>
 
-          <div className="surface surface--soft">
-            <div className="surface-inner">
-              <p className="section-eyebrow">HVEM LAGER VI FOR?</p>
-              <p className="section-description">
-                Verktøyene er bygget for fagfolk som liker system, men ikke vil
-                bruke halve dagen på å lære et verktøy.
-              </p>
-
-              <ul className="about-list">
-                <li>Elektro- og kraftingeniører.</li>
-                <li>Prosjektledere i tekniske prosjekter.</li>
-                <li>Teknikere og montører som jobber ute på anlegg.</li>
-                <li>
-                  Fagmiljøer som ønsker struktur rundt dokumentasjon, formelsamling
-                  og fremdrift – uten store systemer.
-                </li>
-              </ul>
-
-              <p className="section-description" style={{ marginTop: "1.2rem" }}>
-                Vi jobber iterativt, i små steg. Først nettside, så formelsamling,
-                så fremdrift – og videre derfra. Denne siden er ment å være
-                stabilt fundament vi kan bygge videre på.
-              </p>
-            </div>
-          </div>
+      <Section
+        eyebrow="HVORDAN JEG JOBBER"
+        title="Små, gjennomtenkte steg – og mye fokus på struktur"
+        description="Morning Coffee Labs skal ikke bli et massivt systemhus. Ambisjonen er å bygge få, gode verktøy som kan stå på egne ben, men samtidig følge en felles standard for struktur, design og brukervennlighet."
+      >
+        <ul className="simple-list">
+          <li>
+            Jeg prioriterer rolig, konsistent grensesnitt fremfor visuelle
+            effekter som stjeler oppmerksomheten.
+          </li>
+          <li>
+            Verktøyene bygges iterativt – med bevisste versjoner og milepæler,
+            slik at brukere kan følge utviklingen.
+          </li>
+          <li>
+            Bakover-kompatibilitet og forutsigbarhet veier tungt: det skal være
+            trygt å ta i bruk et MCL-verktøy.
+          </li>
+          <li>
+            Tilbakemeldinger fra faktiske brukssituasjoner betyr mer enn
+            hypotetiske behovslister.
+          </li>
+        </ul>
+        <div style={{ marginTop: "1.2rem" }}>
+          <p className="text-muted" style={{ marginBottom: "0.6rem" }}>
+            Hvis du kjenner deg igjen i denne måten å jobbe på, eller ser
+            potensialet for MCL-verktøy i din hverdag, er du veldig velkommen
+            til å ta kontakt.
+          </p>
+          <Button href="/kontakt" variant="secondary">
+            Ta kontakt
+          </Button>
         </div>
       </Section>
     </>
