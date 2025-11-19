@@ -784,7 +784,7 @@ a {
   mask-size: contain;
 
   /* Størrelse og emboss-følelse */
-  opacity: 0.58;
+  opacity: 0.88;
   mix-blend-mode: overlay;
   filter:
     drop-shadow(0 2px 2px rgba(255, 255, 255, 0.12))   /* lys kant */
@@ -794,7 +794,7 @@ a {
 
 @media (max-width: 1024px) {
   .watermark-layer {
-    opacity: 0.14;
+    opacity: 0.54;
     transform: translateY(18px) scale(1.15);
   }
 }
