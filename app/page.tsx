@@ -8,17 +8,36 @@ export default function HomePage() {
       <Hero />
 
       <Section
-        id="produkter"
-        eyebrow="PRODUKTER"
-        title="Verktøy som er små i omfang, men store i nytte"
-        description="Morning Coffee Labs bygger små, presise verktøy. Hver app har et tydelig formål – og en grensesnittfilosofi som går igjen på tvers av plattformene."
+        eyebrow="KORT OM MCL"
+        title="Et digitalt verksted bygget på idéer, struktur og kaffe"
+      >
+        <p className="page-intro">
+          Morning Coffee Labs er et lite digitalt verksted skapt over
+          morgenkaffen – først for å gjøre mitt eget arbeid enklere, og etter
+          hvert for å gjøre hverdagen bedre også for andre. Det som startet som
+          et personlig hobbyprosjekt, er nå på vei til å bli et
+          enkeltmannsforetak med tydelige, kommersielle ambisjoner.
+        </p>
+        <p className="page-intro">
+          Jeg tror på et enkelt prinsipp: <strong>Challenges → Ideas → Solutions</strong>.
+          Utfordringer er ikke problemer – de er starten på alt som kan
+          forbedres. Med erfaring fra prosjekter, tekniske miljøer og praktiske
+          behov bygger jeg verktøy som gjør hverdagen litt ryddigere, litt mer
+          oversiktlig og mye mer effektiv.
+        </p>
+      </Section>
+
+      <Section
+        eyebrow="VERKTØYENE"
+        title="En liten sniktitt på det vi bygger"
+        description="De første verktøyene i Morning Coffee Labs-familien er allerede under utvikling. Her er en kort smakebit – mer detaljer finner du på produktsidene."
       >
         <div className="card-grid">
           <article className="card">
             <h3>Digital formelsamling</h3>
             <p>
-              En fokusert, mobilvennlig formelsamling for elektro og kraft.
-              Kategorier, ryddig struktur og direkte bruk i felt og prosjekter.
+              En klar og mobilvennlig formelsamling for fagfolk, bygget for
+              virkelige prosjekter – ikke bare teoribøker.
             </p>
             <div className="card-footer">
               <span className="card-tag">Kommer før jul</span>
@@ -29,10 +48,11 @@ export default function HomePage() {
           </article>
 
           <article className="card">
-            <h3>ManageProgress</h3>
+            <h3>Manage Progress</h3>
             <p>
-              En lettvekts fremdriftsplan, inspirert av Gantt – men designet for
-              faktiske prosjekter i elektro og kraft, ikke bare prosjektkontor.
+              Et lettvekts planleggingsverktøy som gir oversikt uten støy,
+              inspirert av Gantt men tilpasset faktiske arbeidsflyter – uavhengig
+              av bransje.
             </p>
             <div className="card-footer">
               <span className="card-tag">Lanseres i januar</span>
@@ -41,86 +61,17 @@ export default function HomePage() {
               </Button>
             </div>
           </article>
-
-          <article className="card">
-            <h3>Flere apper kommer</h3>
-            <p>
-              Vi har en voksende idébank for verktøy rundt inspeksjon, logging,
-              dokumentasjon og struktur. Nettsiden blir navet for alt.
-            </p>
-            <div className="card-footer">
-              <span className="card-tag">Under planlegging</span>
-              <span className="text-muted">
-                Følg med på siden for nye lanseringer.
-              </span>
-            </div>
-          </article>
         </div>
-      </Section>
 
-      <Section
-        eyebrow="HVA GJØR OSS ANNERLEDES?"
-        title="Kaffe, fag og struktur – i samme kopp"
-        description="Morning Coffee Labs er bygget rundt en enkel idé: digitale verktøy skal føles like ryddige som et godt oppsatt fordeling- eller fremdriftsoppsett."
-      >
-        <div className="feature-grid">
-          <div className="feature-card">
-            <h3 className="feature-card-title">Ryddige grensesnitt</h3>
-            <p className="feature-card-body">
-              Vi prioriterer oversikt: tydelige seksjoner, konsistente knapper
-              og en rolig fargepalett inspirert av kaffe – ikke blinkende
-              dashbord.
-            </p>
-          </div>
-          <div className="feature-card">
-            <h3 className="feature-card-title">Bygget for fagfolk</h3>
-            <p className="feature-card-body">
-              MCL henvender seg til elektro-, kraft- og tekniske miljøer. Fokus
-              er på bruksscenarier som faktisk oppstår på anlegg, i prosjekter
-              og i møte med standarder.
-            </p>
-          </div>
-          <div className="feature-card">
-            <h3 className="feature-card-title">Moderne teknologi</h3>
-            <p className="feature-card-body">
-              Nettsiden og appene er bygget på moderne web-teknologi, klar for
-              lisenshåndtering, betaling og videre utvidelser når vi tar neste
-              steg.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="OM MCL"
-        title="Morning Coffee Labs i korte trekk"
-        description="Et lite laboratorium for digitale verktøy, startet med et behov for bedre struktur og en forkjærlighet for god kaffe."
-      >
-        <div className="feature-grid">
-          <div className="feature-card">
-            <h3 className="feature-card-title">Fra praksis til produkt</h3>
-            <p className="feature-card-body">
-              Prosjekter i kraftverk, elektro og automasjon har inspirert
-              verktøyene. Vi bygger ut fra faktiske behov, ikke hypotetiske
-              use-cases.
-            </p>
-          </div>
-          <div className="feature-card">
-            <h3 className="feature-card-title">Kaffe + struktur</h3>
-            <p className="feature-card-body">
-              Navnet Morning Coffee Labs handler om roen før dagen starter:
-              få oversikt, strukturere, og så gjennomføre. Det er akkurat det
-              verktøyene våre skal bidra til.
-            </p>
-          </div>
-          <div className="feature-card">
-            <h3 className="feature-card-title">Nettsiden som nav</h3>
-            <p className="feature-card-body">
-              Denne nettsiden er hovedportalen for appene, lisenshåndtering og
-              fremtidige betalingsløsninger. Versjon 1.0 fokuserer på å presentere
-              produktene på en tydelig måte.
-            </p>
-          </div>
+        <div style={{ marginTop: "1.3rem" }}>
+          <p className="text-muted" style={{ marginBottom: "0.6rem" }}>
+            Flere små-verktøy er på vei. Morning Coffee Labs er et laboratorium
+            – nye idéer testes fortløpende, og løsninger formes av faktiske
+            behov.
+          </p>
+          <Button href="/produkter" variant="secondary">
+            Se alle verktøyene
+          </Button>
         </div>
       </Section>
     </>
