@@ -8,24 +8,24 @@ export function Hero() {
           <p className="section-eyebrow">MORNING COFFEE LABS</p>
           <h1 className="hero-heading">Digitale verktøy for fagfolk</h1>
           <p className="hero-subheading">
-            Vi bygger fokuserte, ryddige verktøy for elektro, kraft og andre
-            tekniske fag – med like mye kjærlighet til struktur som til kaffe.
+            Vi bygger fokuserte, ryddige verktøy for tekniske fag – med like
+            mye kjærlighet til struktur som til kaffe.
           </p>
 
           <div className="hero-badges">
             <span className="hero-badge">Formelsamling · kommer før jul</span>
             <span className="hero-badge">
-              ManageProgress · lanseres i januar
+              Manage Progress · lanseres i januar
             </span>
-            <span className="hero-badge">Flere nisje-apper på vei</span>
+            <span className="hero-badge">Flere små-verktøy på vei</span>
           </div>
 
           <div className="hero-actions">
             <Button href="/produkter" variant="primary">
-              Se appene
+              Se verktøyene
             </Button>
             <Button href="/om" variant="secondary">
-              Følg utviklingen
+              Les mer om MCL
             </Button>
           </div>
 
@@ -52,17 +52,19 @@ export function Hero() {
               <div className="hero-metric-card">
                 <div className="hero-metric-label">Formelsamling</div>
                 <div className="hero-metric-value">
-                  Elektro &amp; kraft · v1.0
+                  Elektro &amp; mer · v1.0
                 </div>
                 <div className="hero-metric-sub">
-                  Fokus på NEK 400, praktiske beregninger og ren visning.
+                  Klar, mobilvennlig formelsamling bygget for virkelige
+                  prosjekter – ikke bare teoribøker.
                 </div>
               </div>
               <div className="hero-metric-card">
-                <div className="hero-metric-label">Fremdrift</div>
-                <div className="hero-metric-value">ManageProgress</div>
+                <div className="hero-metric-label">Planlegging</div>
+                <div className="hero-metric-value">Manage Progress</div>
                 <div className="hero-metric-sub">
-                  Gantt-inspirert oversikt uten prosjektstyrings-overkill.
+                  Lettvekts planleggingsverktøy med fokus på oversikt, ikke
+                  prosjektstyrings-overkill.
                 </div>
               </div>
             </div>
