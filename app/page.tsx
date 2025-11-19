@@ -9,21 +9,21 @@ export default function HomePage() {
 
       <Section
         eyebrow="KORT OM MCL"
-        title="Et digitalt verksted bygget på idéer, struktur og kaffe"
+        title="Et digitalt verksted bygget på idéer og struktur over morgenkaffen"
       >
         <p className="page-intro">
           Morning Coffee Labs er et lite digitalt verksted skapt over
-          morgenkaffen – først for å gjøre mitt eget arbeid enklere, og etter
-          hvert for å gjøre hverdagen bedre også for andre. Det som startet som
-          et personlig hobbyprosjekt, er nå på vei til å bli et
-          enkeltmannsforetak med tydelige, kommersielle ambisjoner.
+          morgenkaffen – først for å gjøre eget arbeid enklere, og etter hvert
+          for å gjøre hverdagen bedre også for andre. Det som startet som et
+          personlig hobbyprosjekt, er nå på vei til å bli et enkeltmannsforetak
+          med tydelige, kommersielle ambisjoner.
         </p>
         <p className="page-intro">
-          Jeg tror på et enkelt prinsipp: <strong>Challenges → Ideas → Solutions</strong>.
-          Utfordringer er ikke problemer – de er starten på alt som kan
-          forbedres. Med erfaring fra prosjekter, tekniske miljøer og praktiske
-          behov bygger jeg verktøy som gjør hverdagen litt ryddigere, litt mer
-          oversiktlig og mye mer effektiv.
+          <strong>Challenges → Ideas → Solutions</strong> er mer enn et slogan –
+          det er selve filosofien bak Morning Coffee Labs. Utfordringer er ikke
+          problemer, men starten på alt som kan forbedres. Denne tankegangen
+          ligger bak hver løsning som utvikles her: verktøy som gjør hverdagen
+          litt ryddigere, litt mer oversiktlig og mye mer effektiv.
         </p>
       </Section>
 
@@ -51,8 +51,8 @@ export default function HomePage() {
             <h3>Manage Progress</h3>
             <p>
               Et lettvekts planleggingsverktøy som gir oversikt uten støy,
-              inspirert av Gantt men tilpasset faktiske arbeidsflyter – uavhengig
-              av bransje.
+              inspirert av Gantt men tilpasset faktiske arbeidsflyter –
+              uavhengig av bransje.
             </p>
             <div className="card-footer">
               <span className="card-tag">Lanseres i januar</span>
