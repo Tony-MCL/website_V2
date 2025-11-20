@@ -157,6 +157,46 @@ a {
     color: var(--mcl-text-muted);
   }
 }
+/* Språk-toggle med diagonalt delt "flagg" */
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-inline: 0.8rem;
+}
+
+.lang-toggle-flag {
+  width: 18px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(244, 237, 228, 0.8);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(
+    135deg,
+    #ba0c2f 0%,
+    #ba0c2f 50%,
+    #003c8f 50%,
+    #003c8f 100%
+  );
+}
+
+/* Når engelsk er aktiv, "vipper" vi fargene, så det føles som at
+   den andre diagonalen dominerer */
+.lang-toggle--en .lang-toggle-flag {
+  background: linear-gradient(
+    135deg,
+    #003c8f 0%,
+    #003c8f 50%,
+    #ba0c2f 50%,
+    #ba0c2f 100%
+  );
+}
+
+.lang-toggle-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
 
 /* ===== Buttons ===== */
 
