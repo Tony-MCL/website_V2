@@ -119,37 +119,34 @@ export function Header() {
 
           {/* Språk-toggle med diagonalt delt flagg */}
           <button
-            type="button"
-            className={`nav-link lang-toggle ${
-              currentLang === "en" ? "lang-toggle--en" : "lang-toggle--no"
-            }`}
-            onClick={handleLanguageToggle}
-            aria-label={
-              currentLang === "no"
-                ? "Bytt språk til engelsk"
-                : "Switch language to Norwegian"
-            }
-          >
-            <span className="lang-flag" aria-hidden="true">
-              <span className="lang-flag-half lang-flag-half--left">
-                {currentLang === "no" ? (
-                  <FlagNO className="lang-flag-svg" />
-                ) : (
-                  <FlagGB className="lang-flag-svg" />
-                )}
-              </span>
-              <span className="lang-flag-half lang-flag-half--right">
-                {currentLang === "no" ? (
-                  <FlagGB className="lang-flag-svg" />
-                ) : (
-                  <FlagNO className="lang-flag-svg" />
-                )}
-              </span>
-            </span>
-            <span className="lang-toggle-label">
-              {currentLang === "no" ? "NO" : "EN"}
-            </span>
-          </button>
+  type="button"
+  className={`nav-link lang-toggle ${
+    currentLang === "en" ? "lang-toggle--en" : "lang-toggle--no"
+  }`}
+  onClick={handleLanguageToggle}
+  aria-label={
+    currentLang === "no"
+      ? "Bytt språk til engelsk"
+      : "Switch language to Norwegian"
+  }
+>
+  <span className="lang-flag" aria-hidden="true">
+    <span className="lang-flag-half lang-flag-half--left">
+      {currentLang === "no" ? (
+        <FlagNO className="lang-flag-svg" />
+      ) : (
+        <FlagGB className="lang-flag-svg" />
+      )}
+    </span>
+    <span className="lang-flag-half lang-flag-half--right">
+      {currentLang === "no" ? (
+        <FlagGB className="lang-flag-svg" />
+      ) : (
+        <FlagNO className="lang-flag-svg" />
+      )}
+    </span>
+  </span>
+</button>
         </nav>
 
         <div className="site-nav-mobile-pill">
