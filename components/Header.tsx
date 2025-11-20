@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { FlagNO } from "./flags/FlagNO";
+import { FlagGB } from "./flags/FlagGB";
 
 const LANG_STORAGE_KEY = "mcl-lang";
 
@@ -128,7 +130,22 @@ export function Header() {
                 : "Switch language to Norwegian"
             }
           >
-            <span className="lang-toggle-flag" aria-hidden="true" />
+            <span className="lang-flag" aria-hidden="true">
+              <span className="lang-flag-half lang-flag-half--left">
+                {currentLang === "no" ? (
+                  <FlagNO className="lang-flag-svg" />
+                ) : (
+                  <FlagGB className="lang-flag-svg" />
+                )}
+              </span>
+              <span className="lang-flag-half lang-flag-half--right">
+                {currentLang === "no" ? (
+                  <FlagGB className="lang-flag-svg" />
+                ) : (
+                  <FlagNO className="lang-flag-svg" />
+                )}
+              </span>
+            </span>
             <span className="lang-toggle-label">
               {currentLang === "no" ? "NO" : "EN"}
             </span>
