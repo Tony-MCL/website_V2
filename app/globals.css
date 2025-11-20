@@ -157,46 +157,49 @@ a {
     color: var(--mcl-text-muted);
   }
 }
-/* Språk-toggle med diagonalt delt "flagg" */
-
+/* Språk-toggle uten tekst */
 .lang-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding-inline: 0.8rem;
+  justify-content: center;
+  padding: 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-/* Språk-toggle med diagonalt delt flagg (NO/EN) */
-
-.lang-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding-inline: 0.8rem;
+.lang-toggle:hover {
+  transform: translateY(-1px);
 }
 
+.lang-toggle:active {
+  transform: translateY(0);
+}
+
+/* Flaggets container */
 .lang-flag {
   position: relative;
-  width: 22px;
-  height: 14px;
-  border-radius: 3px;
+  width: 26px;
+  height: 18px;
+  border-radius: 4px;
   overflow: hidden;
-  border: 1px solid rgba(244, 237, 228, 0.8);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.65);
-  flex-shrink: 0;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.45),
+    0 2px 2px rgba(0,0,0,0.25);
 }
 
+/* Diagonale halvdeler */
 .lang-flag-half {
   position: absolute;
   inset: 0;
 }
 
-/* Venstre diagonal halvdel */
 .lang-flag-half--left {
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-/* Høyre diagonal halvdel */
 .lang-flag-half--right {
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
@@ -205,11 +208,6 @@ a {
   width: 100%;
   height: 100%;
   display: block;
-}
-
-.lang-toggle-label {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
 }
 
 
