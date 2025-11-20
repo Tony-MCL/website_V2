@@ -157,46 +157,6 @@ a {
     color: var(--mcl-text-muted);
   }
 }
-/* Språk-toggle: samme form som nav-link, flagg fyller hele pillen */
-
-.lang-toggle {
-  /* nav-link gir farge, radius, hover osv – vi justerer bare størrelsen */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  width: 3rem;          /* ca. samme bredde som "Pricing"-pill */
-  height: 2.1rem;       /* matcher høyden visuelt */
-}
-
-/* container for flagget */
-.lang-flag {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;   /* følger pill-fasongen til nav-link */
-  overflow: hidden;
-}
-
-/* diagonale halvdeler */
-.lang-flag-half {
-  position: absolute;
-  inset: 0;
-}
-
-.lang-flag-half--left {
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-}
-
-.lang-flag-half--right {
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-}
-
-.lang-flag-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
 
 /* ===== Buttons ===== */
 
@@ -853,3 +813,44 @@ a {
     display: none;
   }
 }
+/* Språk-toggle: samme fasong som nav-link, flagg fyller hele pillen */
+
+.lang-toggle {
+  /* arver farger, radius, border osv. fra .nav-link */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;           /* fjerner tekst-padding */
+  width: 3rem;          /* bredden på pillen */
+  height: 2.1rem;       /* høyden på pillen */
+}
+
+/* container for flagget inni pillen */
+.lang-flag {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;  /* samme runding som knappen */
+  overflow: hidden;
+}
+
+/* diagonale halvdeler */
+.lang-flag-half {
+  position: absolute;
+  inset: 0;
+}
+
+.lang-flag-half--left {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.lang-flag-half--right {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.lang-flag-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
