@@ -157,40 +157,28 @@ a {
     color: var(--mcl-text-muted);
   }
 }
-/* Språk-toggle uten tekst */
+/* Språk-toggle: samme form som nav-link, flagg fyller hele pillen */
+
 .lang-toggle {
+  /* nav-link gir farge, radius, hover osv – vi justerer bare størrelsen */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.35rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  transition: transform 0.15s ease;
+  padding: 0;
+  width: 3rem;          /* ca. samme bredde som "Pricing"-pill */
+  height: 2.1rem;       /* matcher høyden visuelt */
 }
 
-.lang-toggle:hover {
-  transform: translateY(-1px);
-}
-
-.lang-toggle:active {
-  transform: translateY(0);
-}
-
-/* Flaggets container */
+/* container for flagget */
 .lang-flag {
   position: relative;
-  width: 26px;
-  height: 18px;
-  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;   /* følger pill-fasongen til nav-link */
   overflow: hidden;
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.45),
-    0 2px 2px rgba(0,0,0,0.25);
 }
 
-/* Diagonale halvdeler */
+/* diagonale halvdeler */
 .lang-flag-half {
   position: absolute;
   inset: 0;
@@ -209,7 +197,6 @@ a {
   height: 100%;
   display: block;
 }
-
 
 /* ===== Buttons ===== */
 
