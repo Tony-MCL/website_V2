@@ -1,25 +1,86 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+
+const LANG_STORAGE_KEY = "mcl-lang";
 
 const navItems = [
-  { href: "/", label: "Forside" },
-  { href: "/produkter", label: "Produkter" },
-  { href: "/priser", label: "Priser" },
-  { href: "/om", label: "Om MCL" },
-  { href: "/kontakt", label: "Kontakt" }
+  {
+    id: "home",
+    hrefNo: "/",
+    hrefEn: "/en",
+    labelNo: "Forside",
+    labelEn: "Home"
+  },
+  {
+    id: "produkter",
+    hrefNo: "/produkter",
+    hrefEn: "/en/produkter",
+    labelNo: "Produkter",
+    labelEn: "Tools"
+  },
+  {
+    id: "priser",
+    hrefNo: "/priser",
+    hrefEn: "/en/priser",
+    labelNo: "Priser",
+    labelEn: "Pricing"
+  },
+  {
+    id: "om",
+    hrefNo: "/om",
+    hrefEn: "/en/om",
+    labelNo: "Om MCL",
+    labelEn: "About MCL"
+  },
+  {
+    id: "kontakt",
+    hrefNo: "/kontakt",
+    hrefEn: "/en/kontakt",
+    labelNo: "Kontakt",
+    labelEn: "Contact"
+  }
 ];
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const isEnglish = pathname.startsWith("/en");
+  const currentLang: "no" | "en" = isEnglish ? "en" : "no";
+
+  function handleLanguageChange(lang: "no" | "en") {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(LANG_STORAGE_KEY, lang);
+    }
+
+    if (lang === currentLang) return;
+
+    if (lang === "en") {
+      if (!pathname.startsWith("/en")) {
+        const target = pathname === "/" ? "/en" : `/en${pathname}`;
+        router.push(target);
+      }
+    } else {
+      // tilbake til norsk
+      if (pathname.startsWith("/en")) {
+        const withoutPrefix = pathname.replace(/^\/en/, "") || "/";
+        router.push(withoutPrefix);
+      }
+    }
+  }
 
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <Link href="/" className="brand" aria-label="Morning Coffee Labs forside">
+        <Link
+          href={isEnglish ? "/en" : "/"}
+          className="brand"
+          aria-label="Morning Coffee Labs forside"
+        >
           <img
             src={`${basePath}/images/mcl-logo.png`}
             alt="Morning Coffee Labs – Challenges → Ideas → Solutions"
@@ -29,22 +90,45 @@ export function Header() {
 
         <nav className="site-nav" aria-label="Hovedmeny">
           {navItems.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href ||
-                  (item.href !== "/" && pathname.startsWith(item.href));
+            const baseHref = isEnglish ? item.hrefEn : item.hrefNo;
+            const isHome = item.id === "home";
+
+            const isActive = isHome
+              ? pathname === baseHref
+              : pathname === baseHref || pathname.startsWith(`${baseHref}/`);
+
+            const label = isEnglish ? item.labelEn : item.labelNo;
 
             return (
               <Link
-                key={item.href}
-                href={item.href}
+                key={item.id}
+                href={baseHref}
                 className={`nav-link ${isActive ? "nav-link--active" : ""}`}
               >
-                {item.label}
+                {label}
               </Link>
             );
           })}
+
+          {/* Språkvelger */}
+          <button
+            type="button"
+            className={`nav-link ${
+              currentLang === "no" ? "nav-link--active" : ""
+            }`}
+            onClick={() => handleLanguageChange("no")}
+          >
+            NO
+          </button>
+          <button
+            type="button"
+            className={`nav-link ${
+              currentLang === "en" ? "nav-link--active" : ""
+            }`}
+            onClick={() => handleLanguageChange("en")}
+          >
+            EN
+          </button>
         </nav>
 
         <div className="site-nav-mobile-pill">
