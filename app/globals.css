@@ -375,6 +375,16 @@ a {
   font-size: 0.8rem;
   color: var(--mcl-text-muted);
 }
+.hero-badge-link {
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+}
+
+.hero-badge-link:hover {
+  background: rgba(244, 237, 228, 0.10);
+  border-color: rgba(244, 237, 228, 0.20);
+  transform: translateY(-1px);
+}
 
 /* Hero visual */
 
