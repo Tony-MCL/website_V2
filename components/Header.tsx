@@ -73,6 +73,11 @@ export function Header() {
     }
   }
 
+  function handleLanguageToggle() {
+    const next = currentLang === "no" ? "en" : "no";
+    handleLanguageChange(next);
+  }
+
   return (
     <header className="site-header">
       <div className="site-header-inner">
@@ -110,24 +115,23 @@ export function Header() {
             );
           })}
 
-          {/* Språkvelger */}
+          {/* Språk-toggle med diagonalt delt flagg */}
           <button
             type="button"
-            className={`nav-link ${
-              currentLang === "no" ? "nav-link--active" : ""
+            className={`nav-link lang-toggle ${
+              currentLang === "en" ? "lang-toggle--en" : "lang-toggle--no"
             }`}
-            onClick={() => handleLanguageChange("no")}
+            onClick={handleLanguageToggle}
+            aria-label={
+              currentLang === "no"
+                ? "Bytt språk til engelsk"
+                : "Switch language to Norwegian"
+            }
           >
-            NO
-          </button>
-          <button
-            type="button"
-            className={`nav-link ${
-              currentLang === "en" ? "nav-link--active" : ""
-            }`}
-            onClick={() => handleLanguageChange("en")}
-          >
-            EN
+            <span className="lang-toggle-flag" aria-hidden="true" />
+            <span className="lang-toggle-label">
+              {currentLang === "no" ? "NO" : "EN"}
+            </span>
           </button>
         </nav>
 
