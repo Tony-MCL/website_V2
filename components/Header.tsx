@@ -31,6 +31,13 @@ const navItems = [
     labelEn: "Pricing"
   },
   {
+    id: "idebank",
+    hrefNo: "/idebank",
+    hrefEn: "/en/idebank",
+    labelNo: "Idébank",
+    labelEn: "Idea bank"
+  },
+  {
     id: "om",
     hrefNo: "/om",
     hrefEn: "/en/om",
@@ -86,7 +93,6 @@ export function Header() {
   }
 
   function handleNavClick() {
-    // Lukk meny når man velger et punkt i mobilvisning
     setIsMenuOpen(false);
   }
 
@@ -164,7 +170,7 @@ export function Header() {
             </button>
           </nav>
 
-          {/* Mobil-høyreside: språk + menyknapp */}
+          {/* Mobil: flagg + hamburger */}
           <div className="site-header-mobile">
             <button
               type="button"
@@ -253,9 +259,7 @@ export function Header() {
               <button
                 type="button"
                 className={`lang-toggle mobile-menu-lang-toggle ${
-                  currentLang === "en"
-                    ? "lang-toggle--en"
-                    : "lang-toggle--no"
+                  currentLang === "en" ? "lang-toggle--en" : "lang-toggle--no"
                 }`}
                 onClick={handleLanguageToggle}
                 aria-label={
@@ -281,9 +285,7 @@ export function Header() {
                   </span>
                 </span>
               </button>
-              <span className="mobile-menu-version-pill">
-                Nettside v1.0
-              </span>
+              <span className="mobile-menu-version-pill">Nettside v1.0</span>
             </div>
           </div>
         </div>
