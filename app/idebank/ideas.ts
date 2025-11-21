@@ -1,10 +1,12 @@
 // app/idebank/ideas.ts
 
+export type IdeaStatus = "pending" | "in-progress" | "released";
+
 export type Idea = {
   id: string;
   title: string;
   description?: string;
-  status: "pending" | "in-progress" | "released";
+  status: IdeaStatus;
 };
 
 export type HallOfFameEntry = {
@@ -16,22 +18,25 @@ export type HallOfFameEntry = {
 export const ideaPipeline: Idea[] = [
   {
     id: "formula-library",
-    title: "Utvidet formelsamling",
-    description: "Flere moduler og beregningsverktøy etter ønsker fra brukere.",
+    title: "Digital formelsamling – videreutvikling",
+    description:
+      "Forslag til nye moduler, beregninger og visninger basert på konkrete behov i felt og prosjekter.",
     status: "in-progress"
   },
   {
-    id: "progress-upgrade",
-    title: "Manage Progress – avanserte visninger",
-    description: "Filter, roller og smart-flyt for prosjektledere.",
+    id: "manage-progress-flow",
+    title: "Manage Progress – smartere arbeidsflyt",
+    description:
+      "Idéer rundt filtrering, visninger for ulike roller og enklere håndtering av milepæler.",
     status: "pending"
   }
 ];
 
 export const hallOfFame: HallOfFameEntry[] = [
   {
-    name: "Ola",
-    contribution: "Idéen bak modul for sikker dokumentdeling",
+    name: "Eksempelnavn",
+    contribution:
+      "Foreslo strukturen som gjorde at en liten intern idé ble til et faktisk MCL-verktøy.",
     year: 2024
   }
 ];
