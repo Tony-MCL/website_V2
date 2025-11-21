@@ -1,54 +1,71 @@
-import { Button } from "../../../components/Button";
+import Link from "next/link";
+import { Section } from "../../../components/Section";
+import { ideaPipeline, hallOfFame } from "../../idebank/ideas";
 
 export default function IdeaBankPage() {
   return (
-    <section className="section">
-      <div className="container">
-        <h1 className="page-heading">Idea bank</h1>
-        <p className="page-intro">
-          Do you have an idea for a small, focused tool that could make everyday
-          work easier – for yourself or for others? This is where to leave it.
+    <>
+      <Section
+        eyebrow="MORNING COFFEE LABS"
+        title="Idea bank"
+        description="A place to collect small, focused tool ideas – the kind that can quietly remove friction from everyday work."
+      >
+        <div className="idea-intro">
+          <p>
+            If there is a tool you wish existed – something that would save
+            time, create better overview or remove a repetitive annoyance –
+            this is where to leave that idea.
+          </p>
+          <p>
+            Many of the best tools start as a single sentence over a morning
+            coffee. Feel free to share those sentences here.
+          </p>
+
+          <Link href="/en/kontakt" className="btn btn-primary">
+            Share an idea via the contact form
+          </Link>
+        </div>
+
+        <h3 className="idea-subtitle">Ideas in the pipeline</h3>
+        <p className="section-description">
+          A selection of ideas being considered or already on the drawing board.
+          The list will be updated as things mature.
         </p>
 
-        <div className="surface surface--soft">
-          <div className="surface-inner">
-            <h2 className="section-title" style={{ marginTop: 0 }}>
-              How it&apos;s meant to work
-            </h2>
-            <p className="section-description" style={{ marginBottom: "1.2rem" }}>
-              Morning Coffee Labs is built around small, precise tools. Many of
-              the best ideas don&apos;t necessarily come from me – but from people
-              who live in projects, plants and everyday little annoyances.
-            </p>
+        <ul className="idea-list">
+          {ideaPipeline.map((idea) => (
+            <li key={idea.id} className="idea-item">
+              <h4>{idea.title}</h4>
+              {idea.description && <p>{idea.description}</p>}
+              <span className={`idea-status status-${idea.status}`}>
+                {idea.status === "pending" && "Under consideration"}
+                {idea.status === "in-progress" && "In development"}
+                {idea.status === "released" && "Released"}
+              </span>
+            </li>
+          ))}
+        </ul>
 
-            <ul className="simple-list">
-              <li>
-                You briefly describe the challenge and what kind of tool you have in mind.
-              </li>
-              <li>
-                I consider whether the idea fits the MCL universe and how it could
-                be realised.
-              </li>
-              <li>
-                If your idea becomes an app or product, you&apos;ll receive a{" "}
-                <strong>one-year license</strong> for any MCL app as a thank you.
-              </li>
-            </ul>
+        <h3 className="idea-subtitle">Hall of Fame</h3>
+        <p className="section-description">
+          Whenever an idea from the idea bank becomes a real tool, I&apos;d like
+          – with permission – to acknowledge that here. A small thank you to
+          those helping shape MCL.
+        </p>
 
-            <p className="text-muted" style={{ marginTop: "1.2rem" }}>
-              This page is currently a simple placeholder. A dedicated idea
-              submission form will be added later. For now, feel free to use the
-              contact form to share your thoughts.
-            </p>
+        <ul className="hof-list">
+          {hallOfFame.map((entry, idx) => (
+            <li key={idx} className="hof-item">
+              <strong>{entry.name}</strong> – {entry.contribution}{" "}
+              <span className="hof-year">({entry.year})</span>
+            </li>
+          ))}
+        </ul>
 
-            <div style={{ marginTop: "1.4rem" }}>
-              <Button href="/en/kontakt" variant="primary">
-                Share an idea via the contact form
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <Link href="/en/idebank/hall-of-fame" className="btn btn-secondary">
+          View full Hall of Fame
+        </Link>
+      </Section>
+    </>
   );
 }
