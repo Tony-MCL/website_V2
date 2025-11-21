@@ -1,27 +1,37 @@
 import Link from "next/link";
-import { Section } from "@/components/Section";
+import { Section } from "../../components/Section";
 import { ideaPipeline, hallOfFame } from "./ideas";
 
-export default function IdeaBankPage() {
+export default function IdebankPage() {
   return (
-    <main>
+    <>
       <Section
-        eyebrow="Morning Coffee Labs"
+        eyebrow="MORNING COFFEE LABS"
         title="Idébank"
-        description="Her kan du se hvilke ideer som vurderes, hvilke som er under arbeid, og sende inn dine egne forslag."
+        description="Her samles ideer til små, presise verktøy som kan gjøre arbeidshverdagen enklere. Både dine og mine."
       >
         <div className="idea-intro">
           <p>
-            En god idé kan bli til et nytt verktøy hos Morning Coffee Labs. Hvis
-            du har et behov, et savn eller et smart forslag – send det gjerne inn!
+            Har du en tanke om et verktøy som mangler? Noe som kunne spart deg
+            tid, gitt bedre oversikt eller gjort hverdagen litt mindre tungvinn?
+            Idébanken er stedet å legge det igjen.
+          </p>
+          <p>
+            Mange av de beste verktøyene starter som en kort setning over
+            morgenkaffen. Del gjerne de setningene her.
           </p>
 
           <Link href="/kontakt" className="btn btn-primary">
-            Send inn idé
+            Del en idé via kontaktskjemaet
           </Link>
         </div>
 
         <h3 className="idea-subtitle">Ideer på vei</h3>
+        <p className="section-description">
+          Noen utvalgte ideer jeg vurderer å bygge, eller som allerede er på
+          tegnebrettet. Listen oppdateres etter hvert som ting modnes.
+        </p>
+
         <ul className="idea-list">
           {ideaPipeline.map((idea) => (
             <li key={idea.id} className="idea-item">
@@ -37,23 +47,25 @@ export default function IdeaBankPage() {
         </ul>
 
         <h3 className="idea-subtitle">Hall of Fame</h3>
-        <p>
-          Ideer som blir til reelle verktøy blir feiret her – med tillatelse fra
-          bidragsyterne.
+        <p className="section-description">
+          Når en idé fra idébanken blir til et faktisk verktøy, ønsker jeg – med
+          tillatelse – å gi litt ære tilbake her. En liten takk til de som har
+          vært med å forme MCL.
         </p>
 
         <ul className="hof-list">
-          {hallOfFame.map((item, idx) => (
+          {hallOfFame.map((entry, idx) => (
             <li key={idx} className="hof-item">
-              <strong>{item.name}</strong> – {item.contribution} ({item.year})
+              <strong>{entry.name}</strong> – {entry.contribution}{" "}
+              <span className="hof-year">({entry.year})</span>
             </li>
           ))}
         </ul>
 
         <Link href="/idebank/hall-of-fame" className="btn btn-secondary">
-          Se alle bidragsytere
+          Se full Hall of Fame
         </Link>
       </Section>
-    </main>
+    </>
   );
 }
