@@ -97,9 +97,15 @@ a {
 .brand-logo {
   height: 72px;
   width: auto;
+  display: block;
 }
 
-
+/* Mindre logo på mobil */
+@media (max-width: 720px) {
+  .brand-logo {
+    height: 48px;
+  }
+}
 
 /* Nav */
 
@@ -143,6 +149,8 @@ a {
   display: none;
   align-items: center;
   gap: 0.4rem;
+  flex-shrink: 0;   /* ikke la flagg + burger krympe bort */
+  margin-left: auto; /* skyv dem til høyre */
 }
 
 /* Knapp for hamburgermeny */
