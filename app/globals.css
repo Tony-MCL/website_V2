@@ -1044,12 +1044,20 @@ a {
 
 .idea-intro {
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.idea-intro .btn {
+  align-self: flex-start;
+  margin-top: 0.4rem;
 }
 
 .idea-subtitle {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: var(--mcl-text);
 }
 
@@ -1064,16 +1072,33 @@ a {
 .idea-item,
 .hof-item,
 .hof-full-item {
-  padding: 1rem;
+  padding: 1rem 1rem 0.9rem;
   border-radius: var(--mcl-radius);
-  background: var(--mcl-surface);
-  margin-bottom: 1rem;
+  background: rgba(26, 20, 17, 0.95);
+  margin-bottom: 0.9rem;
   border: 1px solid var(--mcl-border-subtle);
+  box-shadow: var(--mcl-shadow-soft);
+}
+
+.idea-item h4,
+.hof-full-item h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.98rem;
+}
+
+.idea-item p,
+.hof-item p,
+.hof-full-item p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--mcl-text-muted);
 }
 
 .idea-status {
-  font-size: 0.75rem;
-  opacity: 0.8;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.9;
 }
 
 .status-pending {
@@ -1090,5 +1115,5 @@ a {
 
 .hof-year {
   font-size: 0.8rem;
-  opacity: 0.6;
+  opacity: 0.7;
 }
