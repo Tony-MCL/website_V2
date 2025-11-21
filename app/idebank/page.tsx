@@ -1,55 +1,59 @@
-import { Button } from "../../components/Button";
+import Link from "next/link";
+import { Section } from "@/components/Section";
+import { ideaPipeline, hallOfFame } from "./ideas";
 
-export default function IdebankPage() {
+export default function IdeaBankPage() {
   return (
-    <section className="section">
-      <div className="container">
-        <h1 className="page-heading">Idébank</h1>
-        <p className="page-intro">
-          Har du en idé til et lite, fokusert verktøy som kunne gjort
-          arbeidshverdagen enklere – for deg selv eller andre? Dette er stedet
-          å legge den igjen.
+    <main>
+      <Section
+        eyebrow="Morning Coffee Labs"
+        title="Idébank"
+        description="Her kan du se hvilke ideer som vurderes, hvilke som er under arbeid, og sende inn dine egne forslag."
+      >
+        <div className="idea-intro">
+          <p>
+            En god idé kan bli til et nytt verktøy hos Morning Coffee Labs. Hvis
+            du har et behov, et savn eller et smart forslag – send det gjerne inn!
+          </p>
+
+          <Link href="/kontakt" className="btn btn-primary">
+            Send inn idé
+          </Link>
+        </div>
+
+        <h3 className="idea-subtitle">Ideer på vei</h3>
+        <ul className="idea-list">
+          {ideaPipeline.map((idea) => (
+            <li key={idea.id} className="idea-item">
+              <h4>{idea.title}</h4>
+              {idea.description && <p>{idea.description}</p>}
+              <span className={`idea-status status-${idea.status}`}>
+                {idea.status === "pending" && "Vurderes"}
+                {idea.status === "in-progress" && "Under utvikling"}
+                {idea.status === "released" && "Lansert"}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <h3 className="idea-subtitle">Hall of Fame</h3>
+        <p>
+          Ideer som blir til reelle verktøy blir feiret her – med tillatelse fra
+          bidragsyterne.
         </p>
 
-        <div className="surface surface--soft">
-          <div className="surface-inner">
-            <h2 className="section-title" style={{ marginTop: 0 }}>
-              Slik er tanken
-            </h2>
-            <p className="section-description" style={{ marginBottom: "1.2rem" }}>
-              Morning Coffee Labs er bygget rundt små, presise verktøy. Mange av
-              de beste ideene kommer ikke nødvendigvis fra meg – men fra folk som
-              står midt i prosjekter, anlegg og hverdagens små irritasjonsmomenter.
-            </p>
+        <ul className="hof-list">
+          {hallOfFame.map((item, idx) => (
+            <li key={idx} className="hof-item">
+              <strong>{item.name}</strong> – {item.contribution} ({item.year})
+            </li>
+          ))}
+        </ul>
 
-            <ul className="simple-list">
-              <li>
-                Du beskriver kort utfordringen og hvilken type verktøy du ser for deg.
-              </li>
-              <li>
-                Jeg vurderer om ideen passer inn i MCL-universet og hvordan den kan
-                realiseres.
-              </li>
-              <li>
-                Hvis ideen din blir til en app eller et produkt, får du en{" "}
-                <strong>års lisens</strong> til en valgfri MCL-app som takk.
-              </li>
-            </ul>
-
-            <p className="text-muted" style={{ marginTop: "1.2rem" }}>
-              Denne siden er foreløpig en enkel plassholder. Senere kommer et
-              dedikert skjema for idéinnsending – med litt mer struktur.
-              Inntil videre kan du bruke kontaktskjemaet.
-            </p>
-
-            <div style={{ marginTop: "1.4rem" }}>
-              <Button href="/kontakt" variant="primary">
-                Del en idé via kontaktskjemaet
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <Link href="/idebank/hall-of-fame" className="btn btn-secondary">
+          Se alle bidragsytere
+        </Link>
+      </Section>
+    </main>
   );
 }
