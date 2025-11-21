@@ -1040,3 +1040,55 @@ a {
   display: block;
 }
 
+/* Idebank med hall of fame*/
+
+.idea-intro {
+  margin-bottom: 2rem;
+}
+
+.idea-subtitle {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  color: var(--mcl-text);
+}
+
+.idea-list,
+.hof-list,
+.hof-full-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.idea-item,
+.hof-item,
+.hof-full-item {
+  padding: 1rem;
+  border-radius: var(--mcl-radius);
+  background: var(--mcl-surface);
+  margin-bottom: 1rem;
+  border: 1px solid var(--mcl-border-subtle);
+}
+
+.idea-status {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.status-pending {
+  color: var(--mcl-text-muted);
+}
+
+.status-in-progress {
+  color: var(--mcl-accent);
+}
+
+.status-released {
+  color: var(--mcl-success);
+}
+
+.hof-year {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
