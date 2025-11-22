@@ -1,13 +1,63 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Section } from "../../components/Section";
 import { Button } from "../../components/Button";
+import { db } from "../../lib/firebaseClient";
 
 export default function KontaktPage() {
+  const [navn, setNavn] = useState("");
+  const [epost, setEpost] = useState("");
+  const [melding, setMelding] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+
+    if (!melding.trim()) {
+      setErrorMessage("Skriv gjerne noen ord før du sender.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrorMessage(null);
+    setSuccessMessage(null);
+
+    try {
+      await addDoc(collection(db, "contactMessages"), {
+        name: navn.trim() || null,
+        email: epost.trim() || null,
+        message: melding.trim(),
+        source: "mcl-website",
+        createdAt: serverTimestamp()
+      });
+
+      setSuccessMessage(
+        "Takk for meldingen! Den er lagret i systemet, og jeg tar kontakt så snart jeg kan."
+      );
+      setNavn("");
+      setEpost("");
+      setMelding("");
+    } catch (err) {
+      console.error("Kunne ikke lagre melding:", err);
+      setErrorMessage(
+        "Noe gikk galt under sendingen. Prøv gjerne igjen om litt, eller send e-post direkte."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <>
       <Section
         eyebrow="KONTAKT"
         title="Ta kontakt med Morning Coffee Labs"
-        description="Har du spørsmål, innspill eller ønsker om tilpassede verktøy? Bruk skjemaet eller send en e-post."
+        description="Har du spørsmål, innspill eller ønsker om tilpassede verktøy? Bruk skjemaet – meldingen lagres nå direkte i MCL-backend, klar til oppfølging."
       >
         <div className="product-layout">
           <div>
@@ -18,22 +68,19 @@ export default function KontaktPage() {
               rundt verktøyene våre.
             </p>
 
-            <form
-              className="contact-form"
-              action="mailto:kontakt@placeholder.mcl"
-              method="post"
-              encType="text/plain"
-            >
+            <form className="contact-form" onSubmit={handleSubmit}>
               <div className="field-group">
                 <label htmlFor="navn" className="field-label">
                   Navn
                 </label>
                 <input
                   id="navn"
-                  name="Navn"
+                  name="navn"
                   type="text"
                   className="input"
                   placeholder="Skriv inn navnet ditt"
+                  value={navn}
+                  onChange={(e) => setNavn(e.target.value)}
                 />
               </div>
 
@@ -43,10 +90,12 @@ export default function KontaktPage() {
                 </label>
                 <input
                   id="epost"
-                  name="E-post"
+                  name="epost"
                   type="email"
                   className="input"
                   placeholder="din.epost@eksempel.no"
+                  value={epost}
+                  onChange={(e) => setEpost(e.target.value)}
                 />
               </div>
 
@@ -56,22 +105,40 @@ export default function KontaktPage() {
                 </label>
                 <textarea
                   id="melding"
-                  name="Melding"
+                  name="melding"
                   className="textarea"
                   placeholder="Fortell kort hva du lurer på, eller hvilket verktøy du er interessert i."
+                  value={melding}
+                  onChange={(e) => setMelding(e.target.value)}
                 />
               </div>
 
               <div style={{ marginTop: "0.3rem" }}>
                 <Button type="submit" variant="primary">
-                  Send melding via e-post →
+                  {isSubmitting ? "Sender …" : "Send melding →"}
                 </Button>
               </div>
 
-              <p className="text-muted">
-                Dette skjemaet bruker <code>mailto:</code> og åpner e-postklienten
-                din. Når MCL er klar med egen backend eller integrasjon mot f.eks.
-                Google Forms, kan denne siden oppdateres uten strukturelle endringer.
+              {successMessage && (
+                <p className="text-muted" style={{ marginTop: "0.6rem" }}>
+                  {successMessage}
+                </p>
+              )}
+              {errorMessage && (
+                <p
+                  className="text-muted"
+                  style={{
+                    marginTop: "0.6rem",
+                    color: "var(--mcl-error)"
+                  }}
+                >
+                  {errorMessage}
+                </p>
+              )}
+
+              <p className="text-muted" style={{ marginTop: "0.8rem" }}>
+                Meldingen lagres i MCL sitt backend-arkiv. Senere kan dette
+                kobles mot kunderegister og statistikk uten å endre skjemaet.
               </p>
             </form>
           </div>
@@ -80,14 +147,14 @@ export default function KontaktPage() {
             <div className="surface-inner">
               <p className="section-eyebrow">ANDRE MÅTER Å NÅ OSS PÅ</p>
               <p className="section-description">
-                Nettsiden blir etter hvert koblet mot flere kanaler. Inntil da er
-                e-post en enkel vei inn.
+                Nettsiden blir etter hvert koblet mot flere kanaler. Inntil da
+                er dette skjemaet og e-post en enkel vei inn.
               </p>
 
               <ul className="about-list">
                 <li>
-                  <strong>Produktspørsmål:</strong> Formelsamling, ManageProgress
-                  og andre MCL-apper.
+                  <strong>Produktspørsmål:</strong> Formelsamling, Manage
+                  Progress og andre MCL-apper.
                 </li>
                 <li>
                   <strong>Tilpasninger:</strong> Egen formelsamling, firmaprofil
@@ -100,9 +167,9 @@ export default function KontaktPage() {
               </ul>
 
               <p className="text-muted" style={{ marginTop: "1.2rem" }}>
-                E-postadressene som brukes her er placeholders. Når MCL har egen
-                domene-struktur og e-post, kan tekst og lenker oppdateres uten å
-                endre layout.
+                Ønsker du heller å sende direkte e-post, kan du bruke adressen
+                du setter opp for MCL. Når domene og e-post er på plass, kan vi
+                legge inn en klikkbar lenke her uten å endre strukturen.
               </p>
             </div>
           </div>
